@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { fromJS } from 'immutable';
-import createHistory from 'history/createHashHistory';
+import createHistory from 'history/createBrowserHistory';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import routes from './routes';
@@ -23,11 +23,11 @@ if (window.__INITIAL_STATE__) {
     });
 }
 
-const hashHistory = createHistory();
+const browserHistory = createHistory();
 
-const store = configureStore(initialState, hashHistory);
+const store = configureStore(initialState, browserHistory);
 
-const history = syncHistoryWithStore(hashHistory, store);
+const history = syncHistoryWithStore(browserHistory, store);
 
 // Render the React application to the DOM
 // Root component is to bootstrap Provider, Router and DevTools

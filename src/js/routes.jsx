@@ -6,7 +6,9 @@ import LazyLoading from 'common/components/LazyLoading';
 import styles from '../style/index.scss';
 
 // This is show case how you can lazy loading component
-const ExampleRouteHandler = LazyLoading(() => import('views/example'));
+const ExamplePage = LazyLoading(() => import('views/example'));
+const CounterPage = LazyLoading(() => import('views/counter'));
+const ChuckNorrisPage = LazyLoading(() => import('views/ChuckNorris'));
 const Header = LazyLoading(() => import('common/components/Header/Header'));
 
 // Please remove that, it is an example
@@ -26,9 +28,11 @@ module.exports = (
     <hr />
     <div className={styles.content}>
       <Switch>
-        <Route exact path="/" component={ExampleRouteHandler} />
+        <Route exact path="/" component={ExamplePage} />
         <Route path="/page" component={JustAnotherPage} />
-        <Route path="*" component={ExampleRouteHandler} />
+        <Route path="/counter" component={CounterPage} />
+        <Route path="/chucknorris" component={ChuckNorrisPage} />
+        <Route path="*" component={ExamplePage} />
       </Switch>
     </div>
   </div>

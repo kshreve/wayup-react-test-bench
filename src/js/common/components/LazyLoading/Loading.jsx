@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import styles from './Loading.scss';
 
 class Loading extends PureComponent {
-  getMessage() {
+  render() {
     const {
       isLoading,
       timedOut,
@@ -11,7 +11,7 @@ class Loading extends PureComponent {
       error,
     } = this.props;
 
-    const errorMessage = 'We can&apos;t pull up information at this point, please try again.';
+    const errorMessage = 'We can\'t pull up information at this point, please try again.';
 
     if (isLoading) {
       if (timedOut) {
@@ -27,10 +27,6 @@ class Loading extends PureComponent {
     }
 
     return null;
-  }
-
-  render() {
-    return this.getMessage();
   }
 }
 
